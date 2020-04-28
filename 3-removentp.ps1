@@ -16,7 +16,7 @@ $esx | foreach {
 	$current = get-vmhostntpserver -VMHost $name
 	remove-VmHostNtpServer -VMHost $name -NtpServer $current -Confirm:$false
 	Add-VmHostNtpServer -VMHost $name -NtpServer $newntp1
-    Add-VmHostNtpServer -VMHost $name -NtpServer $newntp2
+        Add-VmHostNtpServer -VMHost $name -NtpServer $newntp2
 	Get-VmHostService -VMHost $name | Where-Object {$_.key -eq "ntpd"} | restart-VMHostService -Confirm:$false
 }
 
